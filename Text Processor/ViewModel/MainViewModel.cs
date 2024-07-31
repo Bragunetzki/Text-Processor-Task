@@ -105,6 +105,12 @@ namespace Text_Processor.ViewModel
             if (string.IsNullOrEmpty(OutputFile))
             {
                 MessageBox.Show("Please select an output file", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (InputFiles.Contains(OutputFile))
+            {
+                MessageBox.Show("Input files cannot contain output file", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
             Status = "Processing...";
